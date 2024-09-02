@@ -2,14 +2,16 @@
 <html>
 
 <head>
-  <title>Fai posti</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>FaiPosti</title>
+  <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
 
 <body>
 
-  <h1> Fai Posti! </h1>
+  <h1> FaiPosti </h1>
+
+  Un cosetto che permette di impostare, riempire e stampare la cartina dei posti di un'aula scolastica.
 
   <h2> Istruzioni</h2>
 
@@ -17,29 +19,39 @@
 
     <li>
 
-      <p> Inserisci la disposizione desiderata secondo il formato illustato nell'esempio (occhio agli spazi!) e pigia
+      <p> Inserisci la disposizione desiderata secondo il formato illustato nell'esempio e pigia
         "genera" per generare la piantina.</p>
 
-      <p> "2 2; 2 3; 2 2 2" va interpretato come tre gruppi/colonne separate da "; " (punto e virgola + spazio)
+      <p> Per esempio: "2 2; 2 3; 2 2 2" va interpretato come tre gruppi/colonne separate da "; " (punto e virgola +
+        spazio)
       <ul>
-        <li>2 2 è la prima colonna, composta da due coppie</li>
+        <li>2 2 è la prima colonna, composta da due coppie di banchi</li>
         <li>2 3 è la seconda colonna, composta da una coppia (sopra) e un gruppo da tre (sotto)</li>
         <li>2 2 2 è la terza colonna, composta da tre coppie</li>
       </ul>
+
+      Occhio agli spazi! se ne lasci uno in fondo, o ne metti uno di troppo, le cose funzioneranno male (senza
+      nessun messaggio errore che ti aiuterà a capire perché)
       </p>
 
     </li>
     <li>
-      <p> Puoi inserire i nomi cella per cella, oppure scrivendoli qui sotto separati da ", " (virgola + spazio) e
-        pigiando su "inserisci". Così facendo verranno riempiti - in ordine - solo i banchi vuoti</p>
+      <p> Puoi inserire i nomi banco per banco, oppure scrivendoli qui sotto separati da ", " (virgola + spazio) e
+        pigiando su "inserisci". Così facendo verranno riempiti - in ordine - solo i banchi vuoti.
+      </p>
+      <p>Due avvertenze: (i) se inserisci tante volte lo stesso nome nessuno se ne accorgerà. (ii) Se un nome è troppo
+        lungo per la casella di testo succederanno cose brutte durante la stampa: o il nome straborderà dalla casella, o
+        andrà a capo scombinando l'allineamento delle righe</p>
     </li>
     <li>
-      <p> Pigia su "mescola" i banchi (compresi quelli vuoti) vencono sparpagliati a caso. </p>
+      <p> Pigiando su "mescola" i nomi e gli spazi vuoti vengono sparpagliati in giro
+        <a href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle" target="_blank"> a caso</a>.
+      </p>
     </li>
 
     <li>
-      <p> Ancora da implementare: Pigia su "stampa" per stampare la piantina in due versioni: vista aula e vista
-        cattedra. </p>
+      <p> Pigia su "stampa" per stampare la piantina in due versioni: quella che vedi, e una versione ruotata di 180°
+        (così da avere vista aula e vista cattedra). </p>
     </li>
   </ol>
 
@@ -48,12 +60,12 @@
   <p>
     <input type="text" id="in_format">
     <button onclick="genera()">Genera</button>
-    Attenzione! Quando si genera una nuova piantina, tutti i nomi inseriti vengono cancellati!
+    <br>Attenzione! Quando si genera una nuova piantina, tutti i nomi inseriti vengono cancellati!
   </p>
 
   <p>
-    <textarea name="" id="in_nomi" cols="50" rows="5"></textarea>
-    <button onclick="inserisci_nomi()">Inserisci</button>
+    <textarea name="" id="in_nomi" rows="5" style="width: 100%;"></textarea>
+    <br><button onclick="inserisci_nomi()">Inserisci</button>
   </p>
 
   <p>
@@ -66,8 +78,10 @@
 
   <h2> Piantina</h2>
 
-  <div id="piantina">
+  <div class="piantina" id="piantina">
   </div>
+
+  <div id="piantine_stampa" style="display: none;"></div>
 </body>
 
 </html>

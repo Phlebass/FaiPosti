@@ -1,7 +1,20 @@
+body {
+  max-width: 24cm;
+}
+
 #piantina {
+  margin-bottom: 10cm;
+}
+
+.piantina {
   display: flex;
   flex-direction: row;
-  gap: 5ch;
+  gap: 2ch;
+}
+
+#piantina_rev {
+  flex-direction: row-reverse;
+  margin-top: 7cm;
 }
 
 .colonna {
@@ -12,19 +25,30 @@
   gap: 1ch;
 }
 
+#piantina_rev .colonna {
+  flex-direction: column-reverse;
+}
+
 .coppia {
   display: flex;
   flex-direction: row;
   flex-grow: 0;
   flex-shrink: 0;
-  gap: 1ch;
+  border: solid black;
+  border-width: 2pt 0 0 2pt;
+}
 
+#piantina_rev .coppia {
+  flex-direction: row-reverse;
 }
 
 .coppia div {
-  background: azure;
+  background: white;
   padding: .5ch;
-  border: 2pt solid black;
+  min-width: 5ch;
+  min-height: 2ch;
+  border: solid black;
+  border-width: 0 2pt 2pt 0;
   flex: 1 1 5ch;
   display: flex;
   justify-content: center;
@@ -32,6 +56,7 @@
 
 .testo_banco {
   flex: 1 1 5ch;
+  font-size: 12pt;
   min-width: 5ch;
   width: 1px;
   background: transparent;

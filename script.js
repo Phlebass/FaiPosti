@@ -48,7 +48,7 @@ function inserisci_nomi() {
 }
 
 function shuffle() {
-  let banchi = document.querySelectorAll(".testo_banco");
+  let banchi = document.querySelectorAll("#piantina .testo_banco");
   let nomi = Array.from(banchi).map((x) => x.value);
 
   let i = nomi.length - 1;
@@ -69,7 +69,29 @@ function shuffle() {
 }
 
 function stampa() {
-  alert("Per ora non ancora :(");
+
+  let nuova_piantina = document.querySelector("#piantina").cloneNode(true);
+  nuova_piantina.id = "piantina2";
+  document.querySelector("#piantine_stampa").appendChild(nuova_piantina);
+  let nuovi_banchi = document.querySelectorAll("#piantina2 .coppia>div");
+  for (let i = 0; i < nuovi_banchi.length; i++) {
+    nuovi_banchi.item(i).textContent = nuovi_banchi.item(i).firstElementChild.value;
+  }
+
+  nuova_piantina = document.querySelector("#piantina2").cloneNode(true);
+  nuova_piantina.id = "piantina_rev";
+  document.querySelector("#piantine_stampa").appendChild(nuova_piantina);
+
+  let print_window = window.open('', '', 'height=400,width=800');
+  print_window.document.write("<html><head><title>Piantina</title><link rel=\"stylesheet\" href=\"styles.css\"></head><body><div id=\"piantina\">")
+  print_window.document.write(document.querySelector("#piantine_stampa").innerHTML);
+  print_window.document.write("</div></body>")
+
+  document.querySelector("#piantine_stampa").innerHTML = "";
+
+  print_window.document.close();
+  print_window.print();
+
 }
 
 document.querySelector("#in_format").value = "2 2 2 2 2; 2 2 3 3 3; 2 2 2 2";
