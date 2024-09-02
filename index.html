@@ -1,13 +1,56 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Hello, World!</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="script.js" defer></script>
-  </head>
-  <body>
-  <div id="content">
-    
+
+<head>
+  <title>Fai posti</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <h1> Fai Posti! </h1>
+
+  <h2> Istruzioni</h2>
+
+  <ol>
+
+    <li>
+
+      <p> Inserisci la disposizione desiderata secondo il formato illustato nell'esempio (occhio agli spazi!) e pigia
+        "genera" per generare la piantina.</p>
+
+      <p> "2 2; 2 3; 2 2 2" va interpretato come tre gruppi/colonne separate da "; " (punto e virgola + spazio)
+      <ul>
+        <li>2 2 è la prima colonna, composta da due coppie</li>
+        <li>2 3 è la seconda colonna, composta da una coppia (sopra) e un gruppo da tre (sotto)</li>
+        <li>2 2 2 è la terza colonna, composta da tre coppie</li>
+      </ul>
+      </p>
+
+    </li>
+    <li>
+
+      <p> Puoi inserire i nomi cella per cella, oppure scrivendoli qui sotto separati da ", " (virgola + spazio) e
+        pigiando
+        su "inserisci". Così facendo verranno riempiti - in ordine - solo i banchi vuoti</p>
+    </li>
+  </ol>
+
+
+  <p>
+    <input type="text" id="in_format">
+    <button onclick="genera()"> Genera</button>
+    Attenzione! Quando generi una nuova piantina, tutti i nomi inseriti vengono cancellati!
+  </p>
+
+  <p>
+    <textarea name="" id="in_nomi" cols="50" rows="5"></textarea>
+    <button onclick="inserisci_nomi()"> Inserisci</button>
+  </p>
+
+  <div id="piantina">
   </div>
-  </body>
+</body>
+
 </html>
