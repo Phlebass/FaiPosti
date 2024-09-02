@@ -1,0 +1,40 @@
+#content {
+    display: flex;
+    flex-direction: row;
+    gap: 5ch;
+  }
+  
+.colonna {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 10ch;
+    gap: 1ch;
+  }
+  
+.coppia {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    flex-shrink: 1;
+    gap: 1ch;
+
+  }
+  
+.coppia div {
+    background: azure;
+    padding: .5ch;
+    border: 2pt solid black;
+    flex: 1 1 5ch;
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    flex: 1 1 5ch;
+    min-width: 5ch;
+    width: 1px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px dotted gray;
+    text-align: center;
+}
