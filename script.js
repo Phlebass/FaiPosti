@@ -9,7 +9,7 @@ function genera() {
     values[c] = values[c].map((x) => parseInt(x));
   }
 
-  console.log(values);
+  //console.log(values);
 
   for (let i = 0; i < input_cols.length; i++) {
     str += "<div class=\"colonna\">";
@@ -47,5 +47,30 @@ function inserisci_nomi() {
   }
 }
 
+function shuffle() {
+  let banchi = document.querySelectorAll(".testo_banco");
+  let nomi = Array.from(banchi).map((x) => x.value);
+
+  let i = nomi.length - 1;
+  let j = 0;
+  let aux = "";
+  while (i > 0) {
+    j = Math.floor(Math.random() * i);
+    aux = nomi[i];
+    nomi[i] = nomi[j];
+    nomi[j] = aux;
+    i--;
+  }
+
+  while (i < banchi.length) {
+    banchi.item(i).value = nomi[i];
+    i++;
+  }
+}
+
+function stampa() {
+  alert("Per ora non ancora :(");
+}
+
 document.querySelector("#in_format").value = "2 2 2 2 2; 2 2 3 3 3; 2 2 2 2";
-document.querySelector("#in_nomi").value = "Sauro Dino, Coteca Pina";
+document.querySelector("#in_nomi").value = "Gauss K. F., Dedekind J. W. R.";

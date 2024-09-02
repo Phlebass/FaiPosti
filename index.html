@@ -30,24 +30,41 @@
 
     </li>
     <li>
-
       <p> Puoi inserire i nomi cella per cella, oppure scrivendoli qui sotto separati da ", " (virgola + spazio) e
-        pigiando
-        su "inserisci". Così facendo verranno riempiti - in ordine - solo i banchi vuoti</p>
+        pigiando su "inserisci". Così facendo verranno riempiti - in ordine - solo i banchi vuoti</p>
+    </li>
+    <li>
+      <p> Pigia su "mescola" i banchi (compresi quelli vuoti) vencono sparpagliati a caso. </p>
+    </li>
+
+    <li>
+      <p> Ancora da implementare: Pigia su "stampa" per stampare la piantina in due versioni: vista aula e vista
+        cattedra. </p>
     </li>
   </ol>
 
+  <h2>Impostazioni</h2>
 
   <p>
     <input type="text" id="in_format">
-    <button onclick="genera()"> Genera</button>
-    Attenzione! Quando generi una nuova piantina, tutti i nomi inseriti vengono cancellati!
+    <button onclick="genera()">Genera</button>
+    Attenzione! Quando si genera una nuova piantina, tutti i nomi inseriti vengono cancellati!
   </p>
 
   <p>
     <textarea name="" id="in_nomi" cols="50" rows="5"></textarea>
-    <button onclick="inserisci_nomi()"> Inserisci</button>
+    <button onclick="inserisci_nomi()">Inserisci</button>
   </p>
+
+  <p>
+    <button onclick="shuffle()">Mescola</button>
+  </p>
+
+  <p>
+    <button onclick="stampa()">Stampa</button>
+  </p>
+
+  <h2> Piantina</h2>
 
   <div id="piantina">
   </div>
