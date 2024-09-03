@@ -26,7 +26,7 @@ function genera() {
   }
 
   document.querySelector("#piantina").innerHTML = str;
-
+  document.querySelector("#piantina").style.display = "flex";
 }
 
 function inserisci_nomi() {

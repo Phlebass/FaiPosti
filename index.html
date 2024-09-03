@@ -9,79 +9,89 @@
 
 <body>
 
-  <h1> FaiPosti </h1>
-
-  Un cosetto che permette di impostare, riempire e stampare la cartina dei posti di un'aula scolastica.
-
-  <h2> Istruzioni</h2>
-
-  <ol>
-
-    <li>
-
-      <p> Inserisci la disposizione desiderata secondo il formato illustato nell'esempio e pigia
-        "genera" per generare la piantina.</p>
-
-      <p> Per esempio: "2 2; 2 3; 2 2 2" va interpretato come tre gruppi/colonne separate da "; " (punto e virgola +
-        spazio)
-      <ul>
-        <li>2 2 è la prima colonna, composta da due coppie di banchi</li>
-        <li>2 3 è la seconda colonna, composta da una coppia (sopra) e un gruppo da tre (sotto)</li>
-        <li>2 2 2 è la terza colonna, composta da tre coppie</li>
-      </ul>
-
-      Occhio agli spazi! se ne lasci uno in fondo, o ne metti uno di troppo, le cose funzioneranno male (senza
-      nessun messaggio errore che ti aiuterà a capire perché)
-      </p>
-
-    </li>
-    <li>
-      <p> Puoi inserire i nomi banco per banco, oppure scrivendoli qui sotto separati da ", " (virgola + spazio) e
-        pigiando su "inserisci". Così facendo verranno riempiti - in ordine - solo i banchi vuoti.
-      </p>
-      <p>Due avvertenze: (i) se inserisci tante volte lo stesso nome nessuno se ne accorgerà. (ii) Se un nome è troppo
-        lungo per la casella di testo succederanno cose brutte durante la stampa: o il nome straborderà dalla casella, o
-        andrà a capo scombinando l'allineamento delle righe</p>
-    </li>
-    <li>
-      <p> Pigiando su "mescola" i nomi e gli spazi vuoti vengono sparpagliati in giro
-        <a href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle" target="_blank"> a caso</a>.
-      </p>
-    </li>
-
-    <li>
-      <p> Pigia su "stampa" per stampare la piantina in due versioni: quella che vedi, e una versione ruotata di 180°
-        (così da avere vista aula e vista cattedra). </p>
-    </li>
-  </ol>
-
-  <h2>Impostazioni</h2>
-
-  <p>
-    <input type="text" id="in_format">
-    <button onclick="genera()">Genera</button>
-    <br>Attenzione! Quando si genera una nuova piantina, tutti i nomi inseriti vengono cancellati!
-  </p>
-
-  <p>
-    <textarea name="" id="in_nomi" rows="5" style="width: 100%;"></textarea>
-    <br><button onclick="inserisci_nomi()">Inserisci</button>
-  </p>
-
-  <p>
-    <button onclick="shuffle()">Mescola</button>
-  </p>
-
-  <p>
-    <button onclick="stampa()">Stampa</button>
-  </p>
-
-  <h2> Piantina</h2>
-
-  <div class="piantina" id="piantina">
+  <div id="top_bar_bg">
+    <h1> FaiPosti </h1>
   </div>
 
-  <div id="piantine_stampa" style="display: none;"></div>
+  <div id="content">
+
+    <p class="subtitle">Un cosetto per impostare, riempire e stampare la cartina
+      dei posti di un'aula
+      scolastica.</p>
+
+    <h2> Istruzioni</h2>
+
+    <ol>
+
+      <li>
+
+        <p> Inserisci la disposizione desiderata secondo il formato illustato nell'esempio e pigia
+          "genera" per generare la piantina.</p>
+
+        <p> Per esempio: "2 2; 2 3; 2 2 2" va interpretato come tre gruppi/colonne separate da "; " (punto e virgola +
+          spazio)
+        <ul>
+          <li>2 2 è la prima colonna, composta da due coppie di banchi</li>
+          <li>2 3 è la seconda colonna, composta da una coppia (sopra) e un gruppo da tre (sotto)</li>
+          <li>2 2 2 è la terza colonna, composta da tre coppie</li>
+        </ul>
+
+        Occhio agli spazi! se ne lasci uno in fondo, o ne metti uno di troppo, le cose funzioneranno male (senza
+        nessun messaggio errore che ti aiuterà a capire perché)
+        </p>
+
+      </li>
+      <li>
+        <p> Puoi inserire i nomi banco per banco, oppure scrivendoli qui sotto e pigiando "inserisci". In questo caso, i
+          nomi devono essere separati da ", " (virgola + spazio) oppure da un "a capo". Così facendo verranno riempiti -
+          in ordine - solo i banchi vuoti.
+        </p>
+        <p>Due avvertenze: (i) se inserisci tante volte lo stesso nome nessuno se ne accorgerà. (ii) Se un nome è troppo
+          lungo per la casella di testo succederanno cose brutte durante la stampa: o il nome straborderà dalla casella,
+          o
+          andrà a capo scombinando l'allineamento delle righe</p>
+      </li>
+      <li>
+        <p> Pigiando su "mescola" i nomi e gli spazi vuoti vengono sparpagliati in giro
+          <a href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle" target="_blank"> a caso</a>.
+        </p>
+      </li>
+
+      <li>
+        <p> Pigia su "stampa" per stampare la piantina in due versioni: quella che vedi, e una versione ruotata di 180°
+          (così da avere vista aula e vista cattedra). Per avere una piantina più grande e leggibile, consigliamo -
+          nelle opzioni di stampa - di ridurre i margini e/o di stampare in formato orizzontale</p>
+      </li>
+    </ol>
+
+    <h2>Impostazioni</h2>
+
+    <p>
+      <input type="text" id="in_format">
+      <button onclick="genera()">Genera</button>
+      <br>Attenzione! Quando si genera una nuova piantina, tutti i nomi inseriti vengono cancellati!
+    </p>
+
+    <p>
+      <textarea name="" id="in_nomi" rows="5" style="width: 100%;"></textarea>
+    <p><button onclick="inserisci_nomi()">Inserisci</button>
+      <button onclick="shuffle()">Mescola</button>
+      <button onclick="stampa()">Stampa</button>
+    </p>
+    </p>
+
+    <h2> Piantina</h2>
+
+    <div class="piantina" id="piantina" style="display: none;">
+    </div>
+
+    <div id="piantine_stampa" style="display: none;"></div>
+
+  </div>
+
+  <div id="bottom_bar_bg">
+    Source: <a href="https://github.com/Phlebass/FaiPosti" target="_blank">github</a>
+  </div>
 </body>
 
 </html>

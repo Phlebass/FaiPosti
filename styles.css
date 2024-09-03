@@ -9,16 +9,107 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+/*https://colorhunt.co/palette/6326269d5353bf8b67dacc96*/
+
+:root {
+  --color-dark: #322C2B;
+  --color-meddar: #803D3B;
+  --color-medlig: #AF8260;
+  --color-light: #E4C59E;
+}
+
 * {
   font-family: "Open Sans Variable", sans-serif;
 }
 
 body {
+  margin: 0;
+  background-color: var(--color-light);
+}
+
+#top_bar_bg {
+  background: var(--color-meddar);
+  height: 3rem;
+  padding: 1ch;
+}
+
+#bottom_bar_bg {
+  background: var(--color-dark);
+  color: var(--color-light);
+  text-align: center;
+  height: 3rem;
+  padding: 1ch;
+}
+
+
+h1 {
+  color: var(--color-light);
+  font-weight: 800;
   max-width: 22cm;
+  margin: auto
+}
+
+.subtitle {
+  color: var(--color-meddar);
+  font-weight: 600;
+  margin-top: 0;
+}
+
+#content {
+  max-width: 22cm;
+  margin: auto;
+  color: var(--color-dark);
+}
+
+h2 {
+  font-weight: 700;
+}
+
+a:link,
+a:hover,
+a:active,
+a:visited {
+  color: inherit;
+}
+
+a:hover {
+  font-weight: 500;
+}
+
+#in_format,
+#in_nomi {
+  background: #ffe1bc;
+  border: 1pt solid var(--color-dark);
+  font-size: 11pt;
+  color: var(--color-meddar);
+  padding: .2ch;
+}
+
+button {
+  background: transparent;
+  border: 2pt solid var(--color-meddar);
+  border-radius: .5ch;
+  font-size: 11pt;
+  font-weight: 600;
+  padding: .2ch;
+  color: var(--color-meddar);
+}
+
+button:hover {
+  background: var(--color-meddar);
+  color: var(--color-light);
+}
+
+button:active {
+  background: var(--color-dark);
+  border-color: var(--color-dark);
 }
 
 #piantina {
   margin-bottom: 10cm;
+  padding: 1rem;
+  border: 1pt solid var(--color-dark);
+  background-color: white;
 }
 
 .piantina {
@@ -56,8 +147,6 @@ body {
 #piantina_rev .coppia {
   flex-direction: row-reverse;
 }
-
-
 
 .coppia div {
   background: white;
@@ -102,4 +191,5 @@ but its too difficult :(
   font-stretch: 85%;
   font-weight: 350;
   font-size: 10pt;
+  text-align: center;
 }
