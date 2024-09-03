@@ -30,7 +30,7 @@ function genera() {
 }
 
 function inserisci_nomi() {
-  let nomi = document.querySelector("#in_nomi").value.split(", ");
+  let nomi = document.querySelector("#in_nomi").value.replace("\n", ", ").split(", ");
   let banchi = document.querySelectorAll(".testo_banco");
   let skip = 0;
   let i = 0;
@@ -83,7 +83,7 @@ function stampa() {
   document.querySelector("#piantine_stampa").appendChild(nuova_piantina);
 
   let print_window = window.open('', '', 'height=400,width=800');
-  print_window.document.write("<html><head><title>Piantina</title><link rel=\"stylesheet\" href=\"styles.css\"></head><body><div id=\"piantina\">")
+  print_window.document.write("<html><head><title>Piantina</title><link rel=\"stylesheet\" href=\"styles.css\"></head><body><div id=\"foglio_stampa\">")
   print_window.document.write(document.querySelector("#piantine_stampa").innerHTML);
   print_window.document.write("</div></body>")
 
@@ -95,4 +95,4 @@ function stampa() {
 }
 
 document.querySelector("#in_format").value = "2 2 2 2 2; 2 2 3 3 3; 2 2 2 2";
-document.querySelector("#in_nomi").value = "Gauss K. F., Dedekind J. W. R.";
+document.querySelector("#in_nomi").value = "Gauss K. F., Dedekind J. W. R.\nRiemann G. F. B.";
