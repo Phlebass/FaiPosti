@@ -17,8 +17,10 @@ function genera() {
       str += "<div class=\"coppia\">";
       for (k = 0; k < values[i][j]; k++) {
         id_posto = "" + i + "-" + j + "-" + k;
-        str += "<div> <input type=\"text\" class=\"testo_banco\" id=\"testo-" + id_posto + "\"></div>";
-        //str += "<input type=\"checkbox\" id=\"cb-" + id_posto + "\"></input></div>";
+        str += "<div class=\"open\"> <input type=\"text\" class=\"testo_banco\" id=\"testo-" + id_posto + "\">";
+        str += "<button onClick=\"lock(this)\" id=\"bott-" + id_posto + "\">"
+        str += document.querySelector("#svg_open").innerHTML;
+        str += "</button></div >";
       }
       str += "</div>"
     }
@@ -30,8 +32,8 @@ function genera() {
 }
 
 function inserisci_nomi() {
-  let nomi = document.querySelector("#in_nomi").value.replace("\n", ", ").split(", ");
-  let banchi = document.querySelectorAll(".testo_banco");
+  let nomi = document.querySelector("#in_nomi").value.replaceAll("\n", ", ").split(", ");
+  let banchi = document.querySelectorAll(".open .testo_banco");
   let skip = 0;
   let i = 0;
   while (i < nomi.length) {
@@ -47,8 +49,19 @@ function inserisci_nomi() {
   }
 }
 
+function lock(button) {
+  //console.log(button.id);
+  if (button.parentElement.className == "open") {
+    button.innerHTML = document.querySelector("#svg_locked").innerHTML;
+    button.parentElement.className = "locked";
+  } else {
+    button.innerHTML = document.querySelector("#svg_open").innerHTML;
+    button.parentElement.className = "open";
+  }
+}
+
 function shuffle() {
-  let banchi = document.querySelectorAll("#piantina .testo_banco");
+  let banchi = document.querySelectorAll("#piantina .open .testo_banco");
   let nomi = Array.from(banchi).map((x) => x.value);
 
   let i = nomi.length - 1;
@@ -95,4 +108,4 @@ function stampa() {
 }
 
 document.querySelector("#in_format").value = "2 2 2 2 2; 2 2 3 3 3; 2 2 2 2";
-document.querySelector("#in_nomi").value = "Gauss K. F., Dedekind J. W. R.\nRiemann G. F. B.";
+document.querySelector("#in_nomi").value = "Gauss, Dedekind\nMittag-Leffler, Riemann";

@@ -16,6 +16,8 @@
   --color-meddar: #803D3B;
   --color-medlig: #AF8260;
   --color-light: #E4C59E;
+  --color-lighter: #FFE1BC;
+  --color-darkgray: #303030;
 }
 
 * {
@@ -45,7 +47,7 @@ body {
 h1 {
   color: var(--color-light);
   font-weight: 800;
-  max-width: 22cm;
+  max-width: 25cm;
   margin: auto
 }
 
@@ -56,7 +58,7 @@ h1 {
 }
 
 #content {
-  max-width: 22cm;
+  max-width: 25cm;
   margin: auto;
   color: var(--color-dark);
 }
@@ -103,6 +105,25 @@ button:hover {
 button:active {
   background: var(--color-dark);
   border-color: var(--color-dark);
+}
+
+.piantina button {
+  width: 15pt;
+  height: 15pt;
+  padding: 1pt;
+  background: transparent;
+  color: var(--color-darkgray);
+  border: none;
+}
+
+.piantina button:hover {
+  background: var(--color-darkgray);
+  color: white;
+}
+
+svg {
+  width: 90%;
+  height: 90%;
 }
 
 #piantina {
@@ -158,6 +179,7 @@ button:active {
   flex: 1 1 5ch;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .testo_banco {
@@ -167,10 +189,14 @@ button:active {
   width: 1px;
   background: transparent;
   border: none;
-  border-bottom: 1pt solid gray;
+  border-bottom: 1pt solid var(--color-darkgray);
   text-align: center;
   font-stretch: inherit;
   font-weight: inherit;
+}
+
+#foglio_stampa {
+  background-color: white;
 }
 
 /*
